@@ -44,5 +44,5 @@ class SimulationApp(SimulationFramework):
         self.xt.setDerivative(self.dxt.getValue())
         self.dxt.update()
         self.xt.update()
-        self.graph.update(self.clock.getTime(), {'F(t)x20N': force/20.0, 'x(t)': self.xt.getValue(), 'dx(t)/dt': self.dxt.getValue()})
+        self.graph.update(self.clock.getTime(), {'F(t) [N]': force, 'x(t) [m]': self.xt.getValue(), 'v(t) [m/s]': self.dxt.getValue()})
 

@@ -9,7 +9,7 @@ class Graph:
 
     def setTitle(self, title):
         self.title = title
-        
+
     def update(self, time, variables):
         self.time.append(time)
         for label, variable in variables.items():
@@ -18,11 +18,17 @@ class Graph:
             self.variables[label].append(variable)
 
     def show(self):
-        for label, variable in self.variables.items():
-            plt.plot(self.time, variable, label=label)
+        fig, axs = plt.subplots(nrows=len(self.variables), sharex=True)
+        fig.suptitle(self.title)
 
-        plt.xlabel('Time')
-        plt.ylabel('Variable')
-        plt.title(self.title)
-        plt.legend()
+        colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']
+
+        for ax, (label, variable), color in zip(axs, self.variables.items(), colors):
+            ax.plot(self.time, variable, label=label, color=color)
+            ax.set_ylabel(label)
+            ax.yaxis.label.set_color(color)
+            ax.tick_params(axis='y', colors=color)
+            ax.grid(True)
+
+        axs[-1].set_xlabel('Time [s]')
         plt.show()
