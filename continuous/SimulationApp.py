@@ -27,22 +27,19 @@ class SimulationFramework:
 
 
 class SimulationApp(SimulationFramework):
-    def __init__(self, title, duration, mass, damping, stiffness):
-        super().__init__(0.01, duration)
+    def __init__(self, title, step, duration, mass, damping, stiffness, force_callback):
+        super().__init__(step, duration)
         self.graph.setTitle(title)
         self.mass = mass
         self.damping = damping
         self.stiffness = stiffness
         self.dxt = Variable(self.clock, 0)
         self.xt = Variable(self.clock, 0)
+        self.force_callback = force_callback
 
     def update(self):
         # Update the simulation here
-        force = 0.0
-        if self.clock.getTime() >= 0.5 and self.clock.getTime() <= 0.6:
-            force = 10.0
-        else:
-            force = 0.0
+        force = self.force_callback(self.clock.getTime())
         self.dxt.setDerivative(force-(self.damping/self.mass)*self.dxt.getValue()-(self.stiffness/self.mass)*self.xt.getValue())
         self.xt.setDerivative(self.dxt.getValue())
         self.dxt.update()
