@@ -1,4 +1,4 @@
-from SimulationApp import SimulationApp
+from simulation_app import SimulationApp
 
 def force_callback(t):
     if t >= 0.2 and t <= 1.5:

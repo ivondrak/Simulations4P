@@ -8,8 +8,7 @@
             "name": "Run Continuous",
             "type": "debugpy",
             "request": "launch",
-            "cwd": "continuous",
-            "program": "main.py",
+            "program": "continuous/main.py",
             "console": "integratedTerminal"
         }
     ]

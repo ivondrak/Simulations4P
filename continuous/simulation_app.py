@@ -1,7 +1,7 @@
-from Clock import Clock
-from Monitor import Monitor
-from Graph import Graph
-from Variable import Variable
+from clock import Clock
+from monitor import Monitor
+from graph import Graph
+from variable import Variable
 
 class SimulationFramework:
 
