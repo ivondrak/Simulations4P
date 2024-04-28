@@ -76,7 +76,6 @@ class SimulationApp:
 
     def departure(self, client):
         time = client.flowTime()
-        print('Client spent time: ', time)
         self.spent_time.append(time)
         self.sink.remove(client)
         self.monitor.update()
