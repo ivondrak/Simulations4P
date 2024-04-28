@@ -6,9 +6,3 @@ class Clock:
 
     def tick(self):
         self.time += self.step
-
-    def getTime(self):
-        return self.time
-    
-    def getStep(self):
-        return self.step

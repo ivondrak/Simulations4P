@@ -39,10 +39,10 @@ class SimulationApp(SimulationFramework):
 
     def update(self):
         # Update the simulation here
-        force = self.force_callback(self.clock.getTime())
-        self.dxt.setDerivative(force-(self.damping/self.mass)*self.dxt.getValue()-(self.stiffness/self.mass)*self.xt.getValue())
-        self.xt.setDerivative(self.dxt.getValue())
+        force = self.force_callback(self.clock.time)
+        self.dxt.derivative = force-(self.damping/self.mass)*self.dxt.value-(self.stiffness/self.mass)*self.xt.value
+        self.xt.derivative = self.dxt.value
         self.dxt.update()
         self.xt.update()
-        self.graph.update(self.clock.getTime(), {'F(t) [N]': force, 'x(t) [m]': self.xt.getValue(), 'v(t) [m/s]': self.dxt.getValue()})
+        self.graph.update(self.clock.time, {'F(t) [N]': force, 'x(t) [m]': self.xt.value, 'v(t) [m/s]': self.dxt.value})
 

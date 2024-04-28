@@ -5,5 +5,5 @@ class Monitor:
         self.duration = duration
 
     def moreTime(self):
-        return self.clock.getTime() <= self.duration
+        return self.clock.time <= self.duration
 

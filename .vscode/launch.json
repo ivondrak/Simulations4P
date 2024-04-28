@@ -10,6 +10,13 @@
             "request": "launch",
             "program": "continuous/main.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Run Event Oriented",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "eventoriented/main.py",
+            "console": "integratedTerminal"
         }
     ]
 }
