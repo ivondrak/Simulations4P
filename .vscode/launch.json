@@ -17,6 +17,13 @@
             "request": "launch",
             "program": "eventoriented/main.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Run Monte Carlo",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "montecarlo/main.py",
+            "console": "integratedTerminal"
         }
     ]
 }
