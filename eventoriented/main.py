@@ -23,5 +23,5 @@ class UniformFactory(GeneratorFactory):
 if __name__ == "__main__":
     title = 'Single queue single service simulation'
     number_of_samples = 1000
-    app = SimulationApp(title, UniformFactory(number_of_samples, 1959))
+    app = SimulationApp(title, UniformFactory(number_of_samples))
     app.run()
